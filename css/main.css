@@ -1,0 +1,37 @@
+:root {
+  --background-color: #222;
+  --theme-color: #CE58E6;
+}
+
+body {
+  background-color: var(--background-color);
+  text-align: center;
+}
+
+.container * {
+  color: #FFF;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.glowing {
+  outline: none;
+  border-color: var(--theme-color);
+  box-shadow: 0 0 5px var(--theme-color);
+}
+
+.glowing:hover {
+  outline: none;
+  box-shadow: 0 0 10px var(--theme-color);
+}
+
+.welcome-text {
+  margin: 10vh 4vw 10vh 4vw;
+  font-size: 1.5em;
+}
+
+.line{
+  width: 112px;
+  height: 47px;
+  border-bottom: 1px solid var(--theme-color);
+  position: absolute;
+}
