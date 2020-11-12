@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta Content-Security-Policy>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/main.css">
+  <link rel="stylesheet" href="./css/button.css">
+  <link rel="stylesheet" href="game.css">
+  <script src="./backend/db.mock.js"></script>
+  <script src="./backend/index.js"></script>
+  <title>Document</title>
+</head>
+<body>
+  <div class="container">
+    <div class="img-container">
+      <img id="image" class="image" src="../assets/eiffel_test_img.png">
+    </div>
+    <div class="caption-container">
+      <span id="caption" class="caption"></span>
+    </div>
+    <div class="btn-container">
+      <button class="btn btn-primary glowing" onclick="checkAnswer(false)"">False</button>
+      <button class="btn btn-primary glowing" onclick="checkAnswer(true)">True</button>
+    </div>
+  </div>
+</body>
+</html>
