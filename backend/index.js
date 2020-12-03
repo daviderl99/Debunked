@@ -25,10 +25,9 @@ const pickRandomImage = () => {
 
 const submitAnswer = (answer) => {
   if (answer === object.bool){
-    // alert("correct");
     gamePoints++;
   } else {
-    // alert("incorrect");
+
   }
 
   if (imagesShown >= 5){
@@ -43,9 +42,8 @@ function gameOver(){
 }
 
 function copyText(){
-  let text = document.getElementById("caption");
-  text.select();
-  text.setSelectionRange(0, 99999);
+  let span = document.getElementById("caption");
+  event.clipboardData.setData("text/plain", span.textContent);
 
   document.execCommand("copy");
 }
