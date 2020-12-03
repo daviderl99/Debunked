@@ -17,9 +17,30 @@
   border: 1px solid var(--theme-color);
 }
 
+.btn-true {
+  background: var(--btn-true);
+  border-color: var(--btn-true);
+  box-shadow: 0 0 5px var(--btn-true);
+}
+
+.btn-false {
+  background: var(--btn-false);
+  border-color: var(--btn-false);
+  box-shadow: 0 0 5px var(--btn-false);
+}
+
 .btn-group .btn {
   padding: 15px;
   width: 75%;
   margin: auto auto 2vh auto;
   display: block;
+}
+
+.img-search {
+  height: 7vh;
+  font-size: 1em;
+}
+
+.img-search a {
+  text-decoration: none;
 }

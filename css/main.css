@@ -1,6 +1,9 @@
 :root {
   --background-color: #222;
-  --theme-color: #CE58E6;
+  /* --theme-color: #CE58E6; */
+  --theme-color: #587EE6;
+  --btn-true: #007500;
+  --btn-false: #950000;
 }
 
 body {
@@ -29,7 +32,7 @@ body {
   font-size: 1.5em;
 }
 
-.line{
+.line {
   width: 112px;
   height: 47px;
   border-bottom: 1px solid var(--theme-color);

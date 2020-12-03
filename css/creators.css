@@ -1,0 +1,10 @@
+
+.creators h1 {
+  color: var(--theme-color);
+}
+
+.creators h5 {
+  font-size: 3.5vh;
+  letter-spacing: 2px;
+  text-decoration: underline;
+}
