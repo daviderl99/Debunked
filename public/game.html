@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta Content-Security-Policy>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/main.css">
+  <link rel="stylesheet" href="./css/button.css">
+  <link rel="stylesheet" href="./css/game.css">
+  <script src="./backend/db.mock.js"></script>
+  <script src="./backend/index.js"></script>
+  <title>Debunked</title>
+</head>
+<body>
+  <div class="container">
+    <div class="img-container">
+      <img id="image" class="image" src="">
+    </div>
+    <div class="caption-container">
+      <span id="caption" class="caption" onclick="copyText()"></span>
+    </div>
+    <div class="btn-container" style="display: block;">
+      <div>
+        <button class="btn btn-primary img-search">
+          <a id="reverse-image-search" href="" target="_blank">
+            Reverse Image Search
+          </a>
+        </button>
+      </div>
+      <div>
+        <button class="btn btn-true" onclick="submitAnswer(true)">True</button>
+        <button class="btn btn-false" onclick="submitAnswer(false)">False</button>
+      </div>
+    </div>
+    <div id="desc-container" style="display: none;">
+      <img src="" id="img-bubble">
+      <br>
+      <span id="description"></span>
+      <br>
+      <button id="nextImage" class="btn btn-primary">Next</button>
+    </div>
+  </div>
+</body>
+</html>

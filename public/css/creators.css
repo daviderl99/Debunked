@@ -1,0 +1,18 @@
+
+.container h1 {
+  color: var(--theme-color);
+}
+
+.creators * {
+  font-size: 2vh;
+  letter-spacing: 2px;
+  margin-bottom: 8vh;
+}
+
+.creators a {
+  text-decoration: underline;
+}
+
+.creators span {
+  text-decoration: underline;
+}

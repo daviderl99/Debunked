@@ -1,0 +1,46 @@
+
+.btn {
+  border: none;
+  outline: none;
+  border-radius: 0.3em;
+  padding: .5em;
+  font-size: 2em;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background-color: var(--theme-color);
+}
+
+.btn-secondary {
+  background-color: var(--background-color);
+  border: 1px solid var(--theme-color);
+}
+
+.btn-true {
+  background: var(--btn-true);
+  border-color: var(--btn-true);
+  box-shadow: 0 0 5px var(--btn-true);
+}
+
+.btn-false {
+  background: var(--btn-false);
+  border-color: var(--btn-false);
+  box-shadow: 0 0 5px var(--btn-false);
+}
+
+.btn-group .btn {
+  padding: 15px;
+  width: 75%;
+  margin: auto auto 2vh auto;
+  display: block;
+}
+
+.img-search {
+  height: 7vh;
+  font-size: 1.3em;
+}
+
+.img-search a {
+  text-decoration: none;
+}

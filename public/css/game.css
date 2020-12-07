@@ -1,0 +1,40 @@
+
+body {
+  margin: 0;
+}
+
+.img-container {
+  margin-top: 20px;
+  padding: 0;
+}
+
+.image {
+  width: 75%;
+  max-width: 50vh;
+  height: auto;
+  border-radius: 1vh;
+}
+
+.caption-container  {
+  margin: 5vh 5vh 2vh 5vh;
+  padding: 5vh 0 5vh 0;
+  display: inline-block;
+  border-top: 1px solid var(--theme-color);
+  border-bottom: 1px solid var(--theme-color);
+}
+
+.caption {
+  font-size: 1.5em;
+}
+
+.btn-container {
+  margin-top: 2.5vh;
+}
+
+.btn-container .btn{
+  margin: 2vh;
+}
+
+#img-bubble {
+  width: 5vh;
+}
