@@ -5,6 +5,7 @@ let usedList = [];
 const levels = 5;
 let gamePoints = 0;
 let imagesShown = 0;
+let progressBarWidth = 0;
 
 window.onload = () => {
   pickRandomImage();
@@ -38,6 +39,8 @@ const submitAnswer = (answer) => {
     hideButtonsDiv();
     showDescriptionDiv("wrong");
   }
+
+  updateProgressBar(imagesShown, levels);
 
   if (imagesShown >= levels){
     // ends immediately atm
@@ -82,3 +85,19 @@ const showDescriptionDiv = (answer) => {
 
 //   document.execCommand("copy");
 // }
+
+const updateProgressBar = (curr, max) => {
+  let percentage = Math.floor(100 * curr / max);
+  let bar = document.getElementById("progess-bar");
+
+  let intv = setInterval(frame, 10);
+  function frame(){
+    if (progressBarWidth === percentage){
+      progressBarWidth = percentage;
+      clearInterval(intv);
+      return;
+    }
+    progressBarWidth++;
+    bar.style.width = `${progressBarWidth}%`;
+  }
+}

@@ -38,3 +38,15 @@ body {
 #img-bubble {
   width: 5vh;
 }
+
+#progess-bar {
+  position: absolute;
+  top: 0;
+  width: 0%;
+  height: 10px;
+  background-color: var(--theme-color);
+}
+
+/* #progress {
+  
+} */
