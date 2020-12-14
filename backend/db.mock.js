@@ -9,7 +9,7 @@ const DATABASE = [
   {
     "_id": 1,
     "imgSrc": "https://image.prntscr.com/image/4WfnIDxXTJaKx1L3iMUJqw.png",
-    "caption": "War criminal executing civilian",
+    "caption": "War criminal executing a civilian",
     "bool": false,
     "description": "The shooter (General Nguyen Ngoc Loan) was executing a ruthless Viet Cong assassin (Nguyen Van Lem aka Bay Lop), who had led a team that had targeted the general himself."
   },
@@ -30,7 +30,7 @@ const DATABASE = [
   {
     "_id": 4,
     "imgSrc": "https://image.prntscr.com/image/McWQQgVST9uZIx737fadQA.png",
-    "caption": "insert some false caption here",
+    "caption": "Wanted fugitive shot by the police",
     "bool": false,
     "description": "Death of a soldier during the Spanish Civil War."
   },
