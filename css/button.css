@@ -1,9 +1,8 @@
-
 .btn {
   border: none;
   outline: none;
   border-radius: 0.3em;
-  padding: .5em;
+  padding: 0.5em;
   font-size: 2em;
   cursor: pointer;
 }
@@ -36,11 +35,11 @@
   display: block;
 }
 
-.img-search {
+.image-search {
   height: 7vh;
   font-size: 1.3em;
 }
 
-.img-search a {
+.image-search a {
   text-decoration: none;
 }

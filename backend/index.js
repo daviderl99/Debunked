@@ -1,49 +1,114 @@
 const IMAGE_SEARCH_URL = "https://www.google.com/searchbyimage?site=search&sa=X&image_url=";
 let object;
-usedList = [];
+let usedObjects = [];
 
-gamePoints = 0;
-imagesShown = 0;
+const maxlevels = 5;
+let gamePoints = 0;
+let currLevel = 0;
+let progressBarWidth = 0;
 
 window.onload = () => {
-  pickRandomImage();
+  displayRandomImage();
+  document.getElementById("next-image").addEventListener("click", displayRandomImage);
 }
 
-const pickRandomImage = () => {
-  object = DATABASE[Math.floor(Math.random() * DATABASE.length)];
-  if (!usedList.includes(object._id)){
+const displayRandomImage = () => {
+  if (isGameOver()) return endGame();
+  hideDescriptionDiv();
+  object = randomFromArray();
+
+  // Make sure image & caption have not been shown already
+  if (!usedObjects.includes(object._id)){
     document.getElementById("image").src = object.imgSrc;
     document.getElementById("caption").innerText = object.caption;
     document.getElementById("reverse-image-search").href = IMAGE_SEARCH_URL + object.imgSrc;
-    usedList.push(object._id);
+    
+    usedObjects.push(object._id);
 
-    imagesShown++;
+    currLevel++;
+    showButtonsDiv();
   } else {
-    pickRandomImage();
+    displayRandomImage();
   }
 }
 
 const submitAnswer = (answer) => {
-  if (answer === object.bool){
+  if (answer === object.bool){ // Correct
     gamePoints++;
-  } else {
-
+    hideButtonsDiv();
+    colorText(true);
+    showDescriptionDiv("correct");
+  } 
+  else { // Incorrect
+    hideButtonsDiv();
+    colorText(false);
+    showDescriptionDiv("incorrect");
   }
 
-  if (imagesShown >= 5){
-    gameOver();
+  updateProgressBar(currLevel, maxlevels);
+}
+
+function isGameOver() {
+  return (currLevel >= maxlevels);
+}
+
+const endGame = () => {
+  sessionStorage.setItem("maxlevels", maxlevels);
+  sessionStorage.setItem("gamePoints", gamePoints);
+  window.location.replace("./gameover.html");
+}
+
+const hideButtonsDiv = () => {
+  div = document.getElementsByClassName("btn-container")[0];
+  div.style.display = "none";
+}
+
+const showButtonsDiv = () => {
+  div = document.getElementsByClassName("btn-container")[0];
+  div.style.display = "block";
+}
+
+const hideDescriptionDiv = () => {
+  div = document.getElementById("description-container");
+  div.style.display = "none";
+}
+
+const randomFromArray = () => {
+  return DATABASE[Math.floor(Math.random() * DATABASE.length)];
+}
+
+const colorText = (bool) => {
+  answerSpan = document.getElementById("answer");
+  if (bool){
+    answerSpan.style.color = "#008F00";
   } else {
-    pickRandomImage();
+    answerSpan.style.color = "#FF2F2F";
   }
 }
 
-function gameOver(){
-  alert(`Points: ${gamePoints}/${imagesShown}`);
+const showDescriptionDiv = (answer) => {
+  div = document.getElementById("description-container");
+  desc = document.getElementById("description");
+  answerSpan = document.getElementById("answer");
+
+  desc.innerText = object.description;
+  answerSpan.innerText = answer.toUpperCase();
+  // img.src = `../assets/${answer}.png`;
+  div.style.display = "block";
 }
 
-function copyText(){
-  let span = document.getElementById("caption");
-  event.clipboardData.setData("text/plain", span.textContent);
+const updateProgressBar = (curr, max) => {
+  let percentage = Math.floor(100 * curr / max);
+  let bar = document.getElementById("progess-bar");
 
-  document.execCommand("copy");
+  let intv = setInterval(frame, 10);
+  function frame(){
+    if (progressBarWidth === percentage){
+      progressBarWidth = percentage;
+      clearInterval(intv);
+      return;
+    }
+    progressBarWidth++;
+    bar.style.width = `${progressBarWidth}%`;
+  }
 }

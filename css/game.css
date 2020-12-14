@@ -1,9 +1,8 @@
-
 body {
   margin: 0;
 }
 
-.img-container {
+.images-container {
   margin-top: 20px;
   padding: 0;
 }
@@ -15,7 +14,7 @@ body {
   border-radius: 1vh;
 }
 
-.caption-container  {
+.caption-container {
   margin: 5vh 5vh 2vh 5vh;
   padding: 5vh 0 5vh 0;
   display: inline-block;
@@ -31,6 +30,47 @@ body {
   margin-top: 2.5vh;
 }
 
-.btn-container .btn{
-  margin: 2vh;
+.btn-container .btn {
+  margin: 1.2vh;
+}
+
+#progess-bar {
+  position: absolute;
+  top: 0;
+  width: 0%;
+  height: 10px;
+  background-color: var(--theme-color);
+}
+
+.answer {
+  text-decoration: underline;
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.description {
+  width: 75%;
+  margin: 0 auto;
+}
+
+#description-container {
+  position: relative;
+  animation-name: swipe;
+  animation-duration: 0.5s;
+}
+
+#description-container * {
+  margin-bottom: 5vh;
+}
+
+@keyframes swipe {
+  0% {
+    opacity: 0;
+    bottom: -50px;
+  }
+
+  100% {
+    opacity: 1;
+    bottom: 0px;
+  }
 }

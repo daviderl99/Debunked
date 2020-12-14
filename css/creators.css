@@ -1,10 +1,14 @@
-
-.creators h1 {
+.container h1 {
   color: var(--theme-color);
+  margin: 5vh 0 5vh 0;
 }
 
-.creators h5 {
-  font-size: 3.5vh;
+.creators * {
+  font-size: 1.1em;
   letter-spacing: 2px;
+  margin-bottom: 8vh;
+}
+
+.creators span {
   text-decoration: underline;
 }
