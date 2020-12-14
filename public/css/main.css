@@ -1,7 +1,7 @@
 :root {
   --background-color: #222;
-  --theme-color: #CE58E6;
-  --theme-color: #587EE6;
+  /* --theme-color: #CE58E6; */
+  --theme-color: #587ee6;
   --btn-true: #007500;
   --btn-false: #950000;
 }
@@ -12,7 +12,7 @@ body {
 }
 
 .container * {
-  color: #FFF;
+  color: #fff;
   font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -39,7 +39,15 @@ body {
   position: absolute;
 }
 
+@media only screen and (min-width: 700px) {
+  /* Desktop */
+  .btn {
+    max-width: 50%;
+  }
+}
+
 @media only screen and (max-width: 300px) {
+  /* Mobile */
   img {
     width: 90%;
     height: auto;

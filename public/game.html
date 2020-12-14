@@ -14,31 +14,33 @@
 <body>
   <div class="container">
     <div id="progess-bar"></div>
-    <div class="img-container">
-      <img id="image" class="image" src="">
+    <div class="images-container">
+      <img id="image" class="image" src="" referrerpolicy="no-referrer">
     </div>
+
     <div class="caption-container">
       <span id="caption" class="caption" onclick="copyText()"></span>
     </div>
-    <div class="btn-container" style="display: block;">
+
+    <div class="btn-container" style="display: block">
       <div>
-        <button class="btn btn-primary img-search">
+        <button class="btn btn-primary image-search">
           <a id="reverse-image-search" href="" target="_blank">
             Reverse Image Search
           </a>
         </button>
       </div>
+
       <div>
         <button class="btn btn-true" onclick="submitAnswer(true)">True</button>
         <button class="btn btn-false" onclick="submitAnswer(false)">False</button>
       </div>
     </div>
-    <div id="desc-container" style="display: none;">
-      <img src="" id="img-bubble">
-      <br>
-      <span id="description"></span>
-      <br>
-      <button id="nextImage" class="btn btn-primary">Next</button>
+
+    <div id="description-container" style="display: none">
+      <div id="answer" class="answer"></div>
+      <div id="description" class="description"></div>
+      <button id="next-image" class="btn btn-primary">Next</button>
     </div>
   </div>
 </body>

@@ -1,18 +1,18 @@
-
-.instructions {
-  width: 75%;
-  margin: 0 auto;
-}
-
-.instructions h1 {
+.container h1 {
   color: var(--theme-color);
+  margin: 5vh 0 5vh 0;
 }
 
-.instructions span {
+.container span {
   font-size: 1.2em;
   margin-top: 5vh;
 }
 
 hr {
   width: 75%;
+}
+
+.container .btn {
+  position: relative;
+  margin-top: 20%;
 }

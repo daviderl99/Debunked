@@ -1,55 +1,59 @@
 const IMAGE_SEARCH_URL = "https://www.google.com/searchbyimage?site=search&sa=X&image_url=";
 let object;
-let usedList = [];
+let usedObjects = [];
 
-const levels = 5;
+const maxlevels = 5;
 let gamePoints = 0;
-let imagesShown = 0;
+let currLevel = 0;
 let progressBarWidth = 0;
 
 window.onload = () => {
-  pickRandomImage();
-  document.getElementById("nextImage").addEventListener("click", pickRandomImage);
+  displayRandomImage();
+  document.getElementById("next-image").addEventListener("click", displayRandomImage);
 }
 
-const pickRandomImage = () => {
+const displayRandomImage = () => {
+  if (isGameOver()) return endGame();
   hideDescriptionDiv();
-  object = DATABASE[Math.floor(Math.random() * DATABASE.length)];
-  if (!usedList.includes(object._id)){ // If image & caption have not been shown yet
+  object = randomFromArray();
+
+  // Make sure image & caption have not been shown already
+  if (!usedObjects.includes(object._id)){
     document.getElementById("image").src = object.imgSrc;
     document.getElementById("caption").innerText = object.caption;
     document.getElementById("reverse-image-search").href = IMAGE_SEARCH_URL + object.imgSrc;
-    usedList.push(object._id);
+    
+    usedObjects.push(object._id);
 
-    imagesShown++;
+    currLevel++;
     showButtonsDiv();
   } else {
-    pickRandomImage();
+    displayRandomImage();
   }
 }
 
 const submitAnswer = (answer) => {
-  if (answer === object.bool){
-    // Correct
+  if (answer === object.bool){ // Correct
     gamePoints++;
     hideButtonsDiv();
+    colorText(true);
     showDescriptionDiv("correct");
-  } else {
-    // Incorrect
+  } 
+  else { // Incorrect
     hideButtonsDiv();
-    showDescriptionDiv("wrong");
+    colorText(false);
+    showDescriptionDiv("incorrect");
   }
 
-  updateProgressBar(imagesShown, levels);
-
-  if (imagesShown >= levels){
-    // ends immediately atm
-    gameOver();
-  }
+  updateProgressBar(currLevel, maxlevels);
 }
 
-const gameOver = () => {
-  sessionStorage.setItem("levels", levels);
+function isGameOver() {
+  return (currLevel >= maxlevels);
+}
+
+const endGame = () => {
+  sessionStorage.setItem("maxlevels", maxlevels);
   sessionStorage.setItem("gamePoints", gamePoints);
   window.location.replace("./gameover.html");
 }
@@ -65,26 +69,33 @@ const showButtonsDiv = () => {
 }
 
 const hideDescriptionDiv = () => {
-  div = document.getElementById("desc-container");
+  div = document.getElementById("description-container");
   div.style.display = "none";
 }
 
-const showDescriptionDiv = (answer) => {
-  div = document.getElementById("desc-container");
-  desc = document.getElementById("description");
-  img = document.getElementById("img-bubble");
-
-  desc.innerText = object.description;
-  img.src = `../assets/${answer}.png`;
-  div.style.display = "block";
+const randomFromArray = () => {
+  return DATABASE[Math.floor(Math.random() * DATABASE.length)];
 }
 
-// function copyText(){
-//   let span = document.getElementById("caption");
-//   event.clipboardData.setData("text/plain", span.textContent);
+const colorText = (bool) => {
+  answerSpan = document.getElementById("answer");
+  if (bool){
+    answerSpan.style.color = "#008F00";
+  } else {
+    answerSpan.style.color = "#FF2F2F";
+  }
+}
 
-//   document.execCommand("copy");
-// }
+const showDescriptionDiv = (answer) => {
+  div = document.getElementById("description-container");
+  desc = document.getElementById("description");
+  answerSpan = document.getElementById("answer");
+
+  desc.innerText = object.description;
+  answerSpan.innerText = answer.toUpperCase();
+  // img.src = `../assets/${answer}.png`;
+  div.style.display = "block";
+}
 
 const updateProgressBar = (curr, max) => {
   let percentage = Math.floor(100 * curr / max);

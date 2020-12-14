@@ -25,7 +25,7 @@ const DATABASE = [
     "imgSrc": "https://image.prntscr.com/image/ZOU8jTJERwSiIqtNIR_0qg.png",
     "caption": "U.S. troops raising a flag in Iwo Jima during World War II",
     "bool": true,
-    "description": "This caption was true"
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ultrices est ac purus vehicula sagittis. Morbi odio erat, finibus quis nisi vitae, sollicitudin eleifend orci. In eget erat malesuada, vulputate tellus a, scelerisque orci. Interdum et malesuada fames ac ante ipsum primis in faucibus."
   },
   {
     "_id": 4,
