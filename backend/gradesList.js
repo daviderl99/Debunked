@@ -9,7 +9,8 @@ const Grades = [
   },
   {
     grade: "grade_b.png", // 8/10
-    description: "Good job! With a bit more practice you can perfect (what?)"
+    description: "*B grade description*"
+    // description: "Good job! With a bit more practice you can perfect (what?)"
   },
   {
     grade: "grade_c.png", // 7/10
@@ -17,7 +18,7 @@ const Grades = [
   },
   {
     grade: "grade_d.png", // 6/10
-    description: ""
+    description: "*D grade description*"
   },
   {
     grade: "grade_e.png", // 5/10
