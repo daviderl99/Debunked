@@ -15,7 +15,7 @@ body {
 }
 
 .caption-container {
-  margin: 5vh 5vh 2vh 5vh;
+  margin: 0 5vh 2vh 5vh;
   padding: 5vh 0 5vh 0;
   display: inline-block;
   border-top: 1px solid var(--theme-color);
@@ -27,7 +27,7 @@ body {
 }
 
 .btn-container {
-  margin-top: 2.5vh;
+  margin-top: 1vh;
 }
 
 .btn-container .btn {
@@ -55,6 +55,7 @@ body {
 
 #description-container {
   position: relative;
+  margin-top: 2vh;
   animation-name: swipe;
   animation-duration: 0.5s;
 }
