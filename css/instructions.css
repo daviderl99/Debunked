@@ -16,3 +16,10 @@ hr {
   position: relative;
   margin-top: 20%;
 }
+
+@media only screen and (min-width: 700px) {
+  /* Desktop */
+  hr {
+    width: 50%;
+  }
+}
