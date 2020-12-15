@@ -9,7 +9,7 @@ window.onload = () => {
   `
     You got ${gamePoints}/${maxlevels} points.
     <br><br>
-    ${Grade.description}
+    ${Grade.comment}
   `;
 }
 
