@@ -35,3 +35,5 @@ const DATABASE = [
     "description": "Death of a soldier during the Spanish Civil War."
   },
 ];
+
+// https://docs.google.com/spreadsheets/d/1Jmyq_SoPVxlYFAdqUULmtcx7mkGtMz_4mC0TB2SctIs/edit#gid=0
