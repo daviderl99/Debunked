@@ -1,4 +1,5 @@
 const IMAGE_SEARCH_URL = "https://www.google.com/searchbyimage?site=search&sa=X&image_url=";
+let DATABASE = [];
 let object;
 let usedObjects = [];
 
@@ -8,17 +9,29 @@ let currLevel = 0;
 let progressBarWidth = 0;
 
 window.onload = () => {
-  displayRandomImage();
+  loadJSONtoArray();
   document.getElementById("next-image").addEventListener("click", displayRandomImage);
+}
+
+const loadJSONtoArray = () => {
+  fetch("./backend/db.mock.json")
+  .then(res => {
+    return res.json();
+  })
+  .then(data => {
+    DATABASE = data;
+    displayRandomImage();
+  });
 }
 
 const displayRandomImage = () => {
   if (isGameOver()) return endGame();
+
   hideDescriptionDiv();
   object = randomFromArray();
 
   // Make sure image & caption have not been shown already
-  if (!usedObjects.includes(object._id)){
+  if (!usedObjects.includes(object._id) && object.caption !== ""){
     document.getElementById("image").src = object.imgSrc;
     document.getElementById("caption").innerText = object.caption;
     document.getElementById("reverse-image-search").href = IMAGE_SEARCH_URL + object.imgSrc;

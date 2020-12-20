@@ -56,8 +56,7 @@ body {
 #description-container {
   position: relative;
   margin-top: 2vh;
-  animation-name: swipe;
-  animation-duration: 0.5s;
+  animation: swipe 0.5s;
 }
 
 #description-container * {
