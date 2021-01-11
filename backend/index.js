@@ -1,5 +1,4 @@
 const IMAGE_SEARCH_URL = "https://www.google.com/searchbyimage?site=search&sa=X&image_url=";
-let DATABASE = [];
 let object;
 let usedObjects = [];
 
@@ -9,19 +8,16 @@ let currLevel = 0;
 let progressBarWidth = 0;
 
 window.onload = () => {
-  loadJSONtoArray();
+  isFirstPlaythrough();
+  displayRandomImage();
   document.getElementById("next-image").addEventListener("click", displayRandomImage);
 }
 
-const loadJSONtoArray = () => {
-  fetch("./backend/db.mock.json")
-  .then(res => {
-    return res.json();
-  })
-  .then(data => {
-    DATABASE = data;
-    displayRandomImage();
-  });
+const isFirstPlaythrough = () => {
+  if (!localStorage.getItem("gamePlayed")){
+    location.href = "./instructions2.html";
+    localStorage.setItem("gamePlayed", true);
+  }
 }
 
 const displayRandomImage = () => {
@@ -71,21 +67,6 @@ const endGame = () => {
   window.location.replace("./gameover.html");
 }
 
-const hideButtonsDiv = () => {
-  div = document.getElementsByClassName("btn-container")[0];
-  div.style.display = "none";
-}
-
-const showButtonsDiv = () => {
-  div = document.getElementsByClassName("btn-container")[0];
-  div.style.display = "block";
-}
-
-const hideDescriptionDiv = () => {
-  div = document.getElementById("description-container");
-  div.style.display = "none";
-}
-
 const randomFromArray = () => {
   return DATABASE[Math.floor(Math.random() * DATABASE.length)];
 }
@@ -124,4 +105,19 @@ const updateProgressBar = (curr, max) => {
     progressBarWidth++;
     bar.style.width = `${progressBarWidth}%`;
   }
+}
+
+const hideButtonsDiv = () => {
+  div = document.getElementsByClassName("btn-container")[0];
+  div.style.display = "none";
+}
+
+const showButtonsDiv = () => {
+  div = document.getElementsByClassName("btn-container")[0];
+  div.style.display = "block";
+}
+
+const hideDescriptionDiv = () => {
+  div = document.getElementById("description-container");
+  div.style.display = "none";
 }

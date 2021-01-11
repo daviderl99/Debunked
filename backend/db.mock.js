@@ -1,4 +1,4 @@
-[
+const DATABASE = [
   {
     "_id": 0,
     "imgSrc": "https://ichef.bbci.co.uk/news/976/cpsprodpb/E1F5/production/_95754875_mediaitem95754874.jpg",
@@ -41,32 +41,32 @@
     "bool": true,
     "description": "Thích Quảng Đức was a Vietnamese Mahayana Buddhist monk who burned himself to death at a busy Saigon road intersection on 11 June 1963. Quảng Đức was protesting the persecution of Buddhists by the South Vietnamese Roman Catholic government led by Ngô Đình Diệm."
   },
-  {
-    "_id": 6,
-    "imgSrc": "",
-    "caption": "",
-    "bool": true,
-    "description": ""
-  },
-  {
-    "_id": 7,
-    "imgSrc": "",
-    "caption": "",
-    "bool": true,
-    "description": ""
-  },
-  {
-    "_id": 8,
-    "imgSrc": "",
-    "caption": "",
-    "bool": true,
-    "description": ""
-  },
-  {
-    "_id": 9,
-    "imgSrc": "",
-    "caption": "",
-    "bool": true,
-    "description": ""
-  }
+  // {
+  //   "_id": 6,
+  //   "imgSrc": "",
+  //   "caption": "",
+  //   "bool": true,
+  //   "description": ""
+  // },
+  // {
+  //   "_id": 7,
+  //   "imgSrc": "",
+  //   "caption": "",
+  //   "bool": true,
+  //   "description": ""
+  // },
+  // {
+  //   "_id": 8,
+  //   "imgSrc": "",
+  //   "caption": "",
+  //   "bool": true,
+  //   "description": ""
+  // },
+  // {
+  //   "_id": 9,
+  //   "imgSrc": "",
+  //   "caption": "",
+  //   "bool": true,
+  //   "description": ""
+  // }
 ]
