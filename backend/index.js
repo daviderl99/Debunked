@@ -108,12 +108,12 @@ const updateProgressBar = (curr, max) => {
 }
 
 const hideButtonsDiv = () => {
-  div = document.getElementsByClassName("btn-container")[0];
+  div = document.getElementsByClassName("inner-container")[0];
   div.style.display = "none";
 }
 
 const showButtonsDiv = () => {
-  div = document.getElementsByClassName("btn-container")[0];
+  div = document.getElementsByClassName("inner-container")[0];
   div.style.display = "block";
 }
 
