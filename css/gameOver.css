@@ -1,8 +1,12 @@
 .container h1 {
   color: var(--theme-color);
-  margin: 5vh 0 5vh 0;
+  margin: 5vh 0 2vh 0;
 }
 
 button {
-  margin-top: 15%;
+  margin-top: 12%;
+}
+
+#pointsReceived {
+  font-size: 1.7em;
 }

@@ -15,7 +15,6 @@ body {
 }
 
 .caption-container {
-  margin: 0 5vh 2vh 5vh;
   padding: 5vh 0 5vh 0;
   display: inline-block;
   border-top: 1px solid var(--theme-color);
@@ -23,7 +22,7 @@ body {
 }
 
 .caption {
-  font-size: 1.5em;
+  font-size: 1.4em;
 }
 
 .inner-container {
@@ -33,6 +32,7 @@ body {
 
 .inner-container .btn {
   margin: 1.2vh;
+  margin-top: 5vh;
 }
 
 #progess-bar {
@@ -80,10 +80,10 @@ body {
   }
 }
 
-@media only screen and (max-width: 300px) {
+@media only screen and (max-width: 400px) {
   /* Mobile */
   .description {
     width: 75%;
-    margin: 0 auto;
+    margin: auto;
   }
 }

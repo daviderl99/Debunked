@@ -5,12 +5,8 @@ window.onload = () => {
   Grade = evaluateGrade(gamePoints, maxlevels);
 
   document.getElementById("grade").src = `./assets/${Grade.grade}`;
-  document.getElementById("pointsReceived").innerHTML = 
-  `
-    You got ${gamePoints}/${maxlevels} points.
-    <br><br>
-    ${Grade.comment}
-  `;
+  document.getElementById("pointsReceived").innerHTML = `You got ${gamePoints}/${maxlevels} points`;
+  document.getElementById("description").innerHTML = `${Grade.comment}`;
 }
 
 const evaluateGrade = (gamePoints, maxlevels) => {

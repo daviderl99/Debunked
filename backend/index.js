@@ -30,7 +30,10 @@ const displayRandomImage = () => {
   if (!usedObjects.includes(object._id) && object.caption !== "") {
     document.getElementById("image").src = object.imgSrc;
     document.getElementById("caption").innerText = object.caption;
-    document.getElementById("reverse-image-search").href = IMAGE_SEARCH_URL + object.imgSrc;
+
+    if (document.getElementById("reverse-image-search")) {
+      document.getElementById("reverse-image-search").href = IMAGE_SEARCH_URL + object.imgSrc;
+    }
 
     usedObjects.push(object._id);
 
@@ -39,6 +42,7 @@ const displayRandomImage = () => {
   } else {
     displayRandomImage();
   }
+  removeImageSearchButton(); // Only if halfway through the game
 }
 
 const submitAnswer = (answer) => {
@@ -87,7 +91,6 @@ const showDescriptionDiv = (answer) => {
 
   desc.innerText = object.description;
   answerSpan.innerText = answer.toUpperCase();
-  // img.src = `../assets/${answer}.png`;
   div.style.display = "block";
 }
 
@@ -120,4 +123,15 @@ const showButtonsDiv = () => {
 const hideDescriptionDiv = () => {
   div = document.getElementById("description-container");
   div.style.display = "none";
+}
+
+// Halfway through the game, remove button for difficulty
+const removeImageSearchButton = () => {
+  if (Math.ceil(maxlevels / currLevel) < 2) {
+    let btn = document.getElementsByClassName("image-search")[0];
+    if (btn) {
+      btn.remove();
+    }
+    return;
+  }
 }
