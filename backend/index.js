@@ -14,8 +14,8 @@ window.onload = () => {
 }
 
 const isFirstPlaythrough = () => {
-  if (!localStorage.getItem("gamePlayed")){
-    location.href = "./instructions2.html";
+  if (!localStorage.getItem("gamePlayed")) {
+    location.href = "./instructions.html";
     localStorage.setItem("gamePlayed", true);
   }
 }
@@ -27,11 +27,11 @@ const displayRandomImage = () => {
   object = randomFromArray();
 
   // Make sure image & caption have not been shown already
-  if (!usedObjects.includes(object._id) && object.caption !== ""){
+  if (!usedObjects.includes(object._id) && object.caption !== "") {
     document.getElementById("image").src = object.imgSrc;
     document.getElementById("caption").innerText = object.caption;
     document.getElementById("reverse-image-search").href = IMAGE_SEARCH_URL + object.imgSrc;
-    
+
     usedObjects.push(object._id);
 
     currLevel++;
@@ -42,12 +42,12 @@ const displayRandomImage = () => {
 }
 
 const submitAnswer = (answer) => {
-  if (answer === object.bool){ // Correct
+  if (answer === object.bool) { // Correct
     gamePoints++;
     hideButtonsDiv();
     colorText(true);
     showDescriptionDiv("correct");
-  } 
+  }
   else { // Incorrect
     hideButtonsDiv();
     colorText(false);
@@ -73,7 +73,7 @@ const randomFromArray = () => {
 
 const colorText = (bool) => {
   answerSpan = document.getElementById("answer");
-  if (bool){
+  if (bool) {
     answerSpan.style.color = "#008F00";
   } else {
     answerSpan.style.color = "#FF2F2F";
@@ -96,8 +96,8 @@ const updateProgressBar = (curr, max) => {
   let bar = document.getElementById("progess-bar");
 
   let intv = setInterval(frame, 10);
-  function frame(){
-    if (progressBarWidth === percentage){
+  function frame() {
+    if (progressBarWidth === percentage) {
       progressBarWidth = percentage;
       clearInterval(intv);
       return;
