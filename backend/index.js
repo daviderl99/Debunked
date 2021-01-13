@@ -2,7 +2,7 @@ const IMAGE_SEARCH_URL = "https://www.google.com/searchbyimage?site=search&sa=X&
 let object;
 let usedObjects = [];
 
-const maxlevels = 5;
+const maxlevels = 10;
 let gamePoints = 0;
 let currLevel = 0;
 let progressBarWidth = 0;
@@ -30,10 +30,7 @@ const displayRandomImage = () => {
   if (!usedObjects.includes(object._id) && object.caption !== "") {
     document.getElementById("image").src = object.imgSrc;
     document.getElementById("caption").innerText = object.caption;
-
-    if (document.getElementById("reverse-image-search")) {
-      document.getElementById("reverse-image-search").href = IMAGE_SEARCH_URL + object.imgSrc;
-    }
+    document.getElementById("reverse-image-search").href = IMAGE_SEARCH_URL + object.imgSrc;
 
     usedObjects.push(object._id);
 
@@ -42,7 +39,6 @@ const displayRandomImage = () => {
   } else {
     displayRandomImage();
   }
-  removeImageSearchButton(); // Only if halfway through the game
 }
 
 const submitAnswer = (answer) => {
@@ -123,15 +119,4 @@ const showButtonsDiv = () => {
 const hideDescriptionDiv = () => {
   div = document.getElementById("description-container");
   div.style.display = "none";
-}
-
-// Halfway through the game, remove button for difficulty
-const removeImageSearchButton = () => {
-  if (Math.ceil(maxlevels / currLevel) < 2) {
-    let btn = document.getElementsByClassName("image-search")[0];
-    if (btn) {
-      btn.remove();
-    }
-    return;
-  }
 }
