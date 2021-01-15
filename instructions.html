@@ -13,6 +13,25 @@
 </head>
 
 <body>
+  <script>
+    window.onload = () => {
+      if (isFirstPlaythrough()) {
+        localStorage.setItem("gamePlayed", true);
+        changeButtonData();
+      }
+    }
+
+    const isFirstPlaythrough = () => {
+      return !localStorage.getItem("gamePlayed");
+    }
+
+    const changeButtonData = () => {
+      let btn = document.getElementsByClassName("btn btn-primary glowing")[0];
+      console.log(btn);
+      btn.setAttribute("onClick", "location.href='./game.html'");
+      btn.innerText = "Play";
+    }
+  </script>
   <div class="container">
     <h1>Instructions</h1>
     <span>

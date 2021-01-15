@@ -16,7 +16,6 @@ window.onload = () => {
 const isFirstPlaythrough = () => {
   if (!localStorage.getItem("gamePlayed")) {
     location.href = "./instructions.html";
-    localStorage.setItem("gamePlayed", true);
   }
 }
 
